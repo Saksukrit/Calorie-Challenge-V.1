@@ -30,13 +30,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Profile"
+            android:name=".Profile.Profile"
             android:label="My Profile" />
         <activity
-            android:name=".History"
+            android:name=".History.History"
             android:label="History" />
         <activity
-            android:name=".Select_type_Order"
+            android:name=".Diet.Select_type_Order"
             android:label="Select Type Order" />
         <activity
             android:name=".Activity_descript"
@@ -45,28 +45,28 @@
             android:name=".Activity_Running"
             android:label="Activity_Running" />
         <activity
-            android:name=".Activity_Walking"
+            android:name=".Activity_Walking.Activity_Walking"
             android:label="Activity_Walking" />
         <activity
-            android:name=".CalorieTotal"
+            android:name=".Diet.CalorieTotal"
             android:label="CalorieTotal" />
         <activity
-            android:name=".History_Eating"
+            android:name=".History.History_Eating"
             android:label="History_Eating" />
         <activity
-            android:name=".History_activity"
+            android:name=".History.History_activity"
             android:label="History_activity" />
         <activity
-            android:name=".List_History_activity"
+            android:name=".History.List_History_activity"
             android:label="List_History_activity" />
         <activity
-            android:name=".List_History_Eating"
+            android:name=".History.List_History_Eating"
             android:label="List_History_Eating" />
         <activity
-            android:name=".ListOrder"
+            android:name=".Diet.ListOrder"
             android:label="ListOrder" />
         <activity
-            android:name=".Profile_Bio"
+            android:name=".Profile.Profile_Bio"
             android:label="Profile_Bio" />
 
     </application>

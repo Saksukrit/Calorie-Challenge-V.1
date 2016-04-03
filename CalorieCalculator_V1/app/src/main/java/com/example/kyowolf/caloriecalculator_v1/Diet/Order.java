@@ -1,4 +1,4 @@
-package com.example.kyowolf.caloriecalculator_v1;
+package com.example.kyowolf.caloriecalculator_v1.Diet;
 
 /**
  * Created by KyoWolf on 2/24/2016.

@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.kyowolf.caloriecalculator_v1.Profile.DB_profile;
+import com.example.kyowolf.caloriecalculator_v1.Profile.Profile;
+
 /**
  * Created by KyoWolf on 08-Mar-16.
  */

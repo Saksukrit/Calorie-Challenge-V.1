@@ -1,4 +1,4 @@
-package com.example.kyowolf.caloriecalculator_v1;
+package com.example.kyowolf.caloriecalculator_v1.Profile;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.kyowolf.caloriecalculator_v1.History.History;
+import com.example.kyowolf.caloriecalculator_v1.R;
 
 /**
  * Created by KyoWolf on 08-Mar-16.

@@ -1,41 +1,39 @@
-package com.example.kyowolf.caloriecalculator_v1;
+package com.example.kyowolf.caloriecalculator_v1.History;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.kyowolf.caloriecalculator_v1.R;
+
 import java.util.ArrayList;
 
-
 /**
- * Created by KyoWolf on 2/24/2016.
+ * Created by KyoWolf on 08-Mar-16.
  */
-public class ListOrder extends Activity {
-
+public class List_History_activity extends AppCompatActivity {
+    ActionBar actionBar;
     ListView listview;
-    private static String TAG_orderfood = "orderfood";
-    private static String TAG_name = "name";
-    private static String TAG_type = "type";
-    private static String TAG_calorie = "calorie";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.listorder);
-        listview = (ListView) findViewById(R.id.list);
+        setContentView(R.layout.list_history_activity);
 
 
-        final String[] order = new String[]{"ข้าวขาหมู     690", "เป็ดย่าง     400",
-                "ก๋วยเตี๋ยวเรือ     320", "กุ้งอบวุ้นเส้น     300",
-                "คะน้าหมูกรอบ     670", "ลูกเดือยต้มน้ำตาล     140",
-                "ขนมจีน     50", "ข้าวแหนม     610", "ข้าวมันไก่     585",
-                "ข้าวไข่เจียว     445"};
+        listview = (ListView) findViewById(R.id.listHisActivity);
+
+
+        final String[] order = new String[]{"Runing            20/12/2015 ,17:58",
+                "Runing            23/12/2015 ,16:30",
+                "Walking            24/12/2015 ,17:02"};
 
 
         final ArrayList<String> list = new ArrayList<String>();
@@ -55,12 +53,9 @@ public class ListOrder extends Activity {
                 Toast.makeText(getApplicationContext(),
                         "Select : " + order[((int) id)].toString(), Toast.LENGTH_LONG)
                         .show();
-                Intent intenttotal = new Intent(getApplicationContext(), CalorieTotal.class);
+                Intent intenttotal = new Intent(getApplicationContext(), History_activity.class);
                 startActivity(intenttotal);
-                
             }
         });
     }
 }
-
-

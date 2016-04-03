@@ -1,4 +1,4 @@
-package com.example.kyowolf.caloriecalculator_v1;
+package com.example.kyowolf.caloriecalculator_v1.Profile;
 
 /**
  * Created by Krit on 3/28/2016.

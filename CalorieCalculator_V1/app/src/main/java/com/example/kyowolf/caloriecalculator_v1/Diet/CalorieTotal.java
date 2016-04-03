@@ -1,4 +1,4 @@
-package com.example.kyowolf.caloriecalculator_v1;
+package com.example.kyowolf.caloriecalculator_v1.Diet;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.kyowolf.caloriecalculator_v1.History.History;
+import com.example.kyowolf.caloriecalculator_v1.Profile.Profile;
+import com.example.kyowolf.caloriecalculator_v1.R;
 
 import java.util.ArrayList;
 

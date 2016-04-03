@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.kyowolf.caloriecalculator_v1.History.History;
+import com.example.kyowolf.caloriecalculator_v1.Profile.Profile;
+
 /**
  * Created by KyoWolf on 08-Mar-16.
  */

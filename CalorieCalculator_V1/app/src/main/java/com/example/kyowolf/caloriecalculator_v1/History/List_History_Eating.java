@@ -1,4 +1,4 @@
-package com.example.kyowolf.caloriecalculator_v1;
+package com.example.kyowolf.caloriecalculator_v1.History;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,28 +10,26 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.kyowolf.caloriecalculator_v1.R;
+
 import java.util.ArrayList;
 
 /**
  * Created by KyoWolf on 08-Mar-16.
  */
-public class List_History_activity extends AppCompatActivity {
+public class List_History_Eating extends AppCompatActivity {
     ActionBar actionBar;
     ListView listview;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_history_activity);
+        setContentView(R.layout.list_history_eating);
+
+        listview = (ListView) findViewById(R.id.listHisEating);
 
 
-        listview = (ListView) findViewById(R.id.listHisActivity);
-
-
-        final String[] order = new String[]{"Runing            20/12/2015 ,17:58",
-                "Runing            23/12/2015 ,16:30",
-                "Walking            24/12/2015 ,17:02"};
+        final String[] order = new String[]{"2100  calorie       20/12/2015", "1800  calorie       23/16/2015", "1950  calorie       24/16/2015"};
 
 
         final ArrayList<String> list = new ArrayList<String>();
@@ -51,8 +49,9 @@ public class List_History_activity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         "Select : " + order[((int) id)].toString(), Toast.LENGTH_LONG)
                         .show();
-                Intent intenttotal = new Intent(getApplicationContext(), History_activity.class);
+                Intent intenttotal = new Intent(getApplicationContext(), History_Eating.class);
                 startActivity(intenttotal);
+                finish();
             }
         });
     }

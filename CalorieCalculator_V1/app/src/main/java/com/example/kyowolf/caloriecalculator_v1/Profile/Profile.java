@@ -1,4 +1,4 @@
-package com.example.kyowolf.caloriecalculator_v1;
+package com.example.kyowolf.caloriecalculator_v1.Profile;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,6 +12,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.kyowolf.caloriecalculator_v1.Activity_Running;
+import com.example.kyowolf.caloriecalculator_v1.Activity_Walking.Activity_Walking;
+import com.example.kyowolf.caloriecalculator_v1.History.History;
+import com.example.kyowolf.caloriecalculator_v1.LoginMainActivity;
+import com.example.kyowolf.caloriecalculator_v1.R;
+import com.example.kyowolf.caloriecalculator_v1.Diet.Select_type_Order;
 
 
 /**
