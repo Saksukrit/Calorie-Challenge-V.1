@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    android:weightSum="1">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#CCFF66">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:text="My Profile"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imageprofile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/profile" />
+
+        <TextView
+            android:id="@+id/nameprofile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageprofile"
+            android:layout_gravity="center_horizontal"
+            android:layout_toEndOf="@+id/imageprofile"
+            android:layout_toRightOf="@+id/imageprofile"
+            android:text="JMboy"
+            android:textSize="50dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/imageprofile"
+            android:text="Biophysical" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.52"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:id="@+id/agelayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/agetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age : "
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/agetext"
+                android:layout_toEndOf="@+id/agetext"
+                android:layout_toRightOf="@+id/agetext"
+                android:text="20"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/heightlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/weightlayout"
+            android:layout_alignLeft="@+id/agelayout"
+            android:layout_alignStart="@+id/agelayout">
+
+            <TextView
+                android:id="@+id/heighttext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Height : "
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/heighttext"
+                android:layout_toEndOf="@+id/heighttext"
+                android:layout_toRightOf="@+id/heighttext"
+                android:text="169"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/weightlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/heightlayout"
+            android:layout_alignStart="@+id/heightlayout"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/weighttext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="weight : "
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/weighttext"
+                android:layout_toEndOf="@+id/weighttext"
+                android:layout_toRightOf="@+id/weighttext"
+                android:text="62"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/bmrlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="43dp"
+            android:layout_marginRight="43dp">
+
+            <TextView
+                android:id="@+id/bmrtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BMR : "
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/bmr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/bmrtext"
+                android:layout_toEndOf="@+id/bmrtext"
+                android:layout_toRightOf="@+id/bmrtext"
+                android:text="1624"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tdeelayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/bmrlayout"
+            android:layout_alignStart="@+id/bmrlayout"
+            android:layout_below="@+id/heightlayout">
+
+            <TextView
+                android:id="@+id/tdeetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TDEE : "
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/tdee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tdeetext"
+                android:layout_toEndOf="@+id/tdeetext"
+                android:layout_toRightOf="@+id/tdeetext"
+                android:text="1949"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_weight="0.41"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/running"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Running"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/walking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/training"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/training"
+            android:text="Walking"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/eating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/running"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/running"
+            android:text="Eating"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/training"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:text="Training"
+            android:textSize="30dp" />
+    </RelativeLayout>
+
+
+</LinearLayout>

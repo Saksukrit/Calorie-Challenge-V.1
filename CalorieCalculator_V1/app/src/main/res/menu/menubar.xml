@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/itemid_0"
+        android:orderInCategory="0"
+        android:title="Profile" />
+    <item
+        android:id="@+id/itemid_1"
+        android:orderInCategory="0"
+        android:title="History" />
+    <item
+        android:id="@+id/itemid_2"
+        android:orderInCategory="0"
+        android:title="Challenge" />
+    <item
+        android:id="@+id/itemid_3"
+        android:orderInCategory="0"
+        android:title="Setting" />
+    <item
+        android:id="@+id/itemid_4"
+        android:orderInCategory="0"
+        android:title="Logout" />
+</menu>
