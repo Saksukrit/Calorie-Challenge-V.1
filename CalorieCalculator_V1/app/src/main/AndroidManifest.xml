@@ -69,21 +69,7 @@
         <activity
             android:name=".Profile.Profile_Bio"
             android:label="Profile_Bio" />
-        <activity
-            android:name=".pedometer.Pedometer"
-            android:configChanges="orientation"
-            android:label="Pedometer"></activity>
-        <activity
-            android:name=".pedometer.Settings"
-            android:label="Settings">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
 
-
-        <service android:name=".pedometer.StepService" />
 
     </application>
 
