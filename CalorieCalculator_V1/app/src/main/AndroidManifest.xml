@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kyowolf.caloriecalculator_v1"
+    android:installLocation="auto"
     android:versionCode="1"
     android:versionName="1.0">
 
@@ -12,6 +13,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -25,7 +27,6 @@
             android:label="Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -68,6 +69,21 @@
         <activity
             android:name=".Profile.Profile_Bio"
             android:label="Profile_Bio" />
+        <activity
+            android:name=".pedometer.Pedometer"
+            android:configChanges="orientation"
+            android:label="Pedometer"></activity>
+        <activity
+            android:name=".pedometer.Settings"
+            android:label="Settings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <service android:name=".pedometer.StepService" />
 
     </application>
 
