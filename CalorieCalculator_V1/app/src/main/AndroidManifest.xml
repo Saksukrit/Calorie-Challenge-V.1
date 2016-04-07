@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.kyowolf.caloriecalculator_v1"
+    android:installLocation="auto"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="14" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Calorie Challenge V.1.0"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        <activity
+            android:name=".LoginMainActivity"
+            android:label="Calorie Challenge">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Profile.Profile"
+            android:label="My Profile" />
+        <activity
+            android:name=".History.History"
+            android:label="History" />
+        <activity
+            android:name=".Diet.Select_type_Order"
+            android:label="Select Type Order" />
+        <activity
+            android:name=".Activity_descript"
+            android:label="Activity_descript" />
+        <activity
+            android:name=".Activity_Running"
+            android:label="Activity_Running" />
+        <activity
+            android:name=".Activity_Walking.Activity_Walking"
+            android:label="Activity_Walking" />
+        <activity
+            android:name=".Diet.CalorieTotal"
+            android:label="CalorieTotal" />
+        <activity
+            android:name=".History.History_Eating"
+            android:label="History_Eating" />
+        <activity
+            android:name=".History.History_activity"
+            android:label="History_activity" />
+        <activity
+            android:name=".History.List_History_activity"
+            android:label="List_History_activity" />
+        <activity
+            android:name=".History.List_History_Eating"
+            android:label="List_History_Eating" />
+        <activity
+            android:name=".Diet.ListOrder"
+            android:label="ListOrder" />
+        <activity
+            android:name=".Profile.Profile_Bio"
+            android:label="Profile_Bio" />
+        <activity
+            android:name=".StepCounter.StepCounterActivity"
+            android:label="StepCounterActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name=".StepCounter.StepCounterService" />
+        <activity
+            android:name=".StepCounter.SettingsActivity"
+            android:label="SettingsActivity"
+            android:screenOrientation="portrait" />
+
+
+    </application>
+
+</manifest>

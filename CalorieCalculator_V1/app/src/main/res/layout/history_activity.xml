@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:weightSum="1">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#CCFF66"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/AcName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Run"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="delete" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="198dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:text="23/12/2015, 16:30"
+            android:textSize="20dp" />
+
+    </FrameLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/burn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/burn" />
+
+
+        <TextView
+            android:id="@+id/textCalories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/burn"
+            android:layout_toRightOf="@+id/burn"
+            android:text="Calories : "
+            android:textSize="27dp" />
+
+        <TextView
+            android:id="@+id/calories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/textCalories"
+            android:layout_toRightOf="@+id/textCalories"
+            android:text="368"
+            android:textSize="27dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="47dp"
+            android:layout_marginRight="47dp"
+            android:text="kcal."
+            android:textSize="27dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/distance"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/distance" />
+
+
+        <TextView
+            android:id="@+id/textDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/distance"
+            android:layout_toRightOf="@+id/distance"
+            android:text="Distance : "
+            android:textSize="27dp" />
+
+        <TextView
+            android:id="@+id/distances"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/textDistance"
+            android:layout_toRightOf="@+id/textDistance"
+            android:text="5.6"
+            android:textSize="27dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="47dp"
+            android:layout_marginRight="47dp"
+            android:text="km."
+            android:textSize="27dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/duration"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/duration" />
+
+
+        <TextView
+            android:id="@+id/textDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/duration"
+            android:layout_toRightOf="@+id/duration"
+            android:text="Duration : "
+            android:textSize="27dp" />
+
+        <TextView
+            android:id="@+id/durations"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/textDuration"
+            android:layout_toRightOf="@+id/textDuration"
+            android:text="00:30"
+            android:textSize="27dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="47dp"
+            android:layout_marginRight="47dp"
+            android:text="hr."
+            android:textSize="27dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/speed"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/speed" />
+
+
+        <TextView
+            android:id="@+id/textSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/speed"
+            android:layout_toRightOf="@+id/speed"
+            android:text="Speed : "
+            android:textSize="27dp" />
+
+        <TextView
+            android:id="@+id/speeds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/textSpeed"
+            android:layout_toRightOf="@+id/textSpeed"
+            android:text="9.7"
+            android:textSize="27dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="47dp"
+            android:layout_marginRight="47dp"
+            android:text="km./hr.."
+            android:textSize="27dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.63">
+
+        <TextView
+            android:id="@+id/detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="      วันนี้ฉันวิ่งคนเดียว เหงาดีเนอะ TT วิ่งได้3รอบ เหนื่อยกำลังดี ครั้งหน้าต้องให้ได้มากกว่านี้ เผื่อจะเจอคนมาวิ่งข้าง ^^"
+            android:textSize="20dp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/detail"
+            android:src="@drawable/runrun" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

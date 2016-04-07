@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:weightSum="1">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#CCFF66"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:text="Activity History"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="427dp"
+        android:padding="10dp">
+
+        <ListView
+            android:id="@+id/listHisActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:background="#dbff99"></ListView>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
