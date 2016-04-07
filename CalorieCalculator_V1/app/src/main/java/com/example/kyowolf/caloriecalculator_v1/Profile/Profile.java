@@ -3,6 +3,7 @@ package com.example.kyowolf.caloriecalculator_v1.Profile;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -19,6 +20,10 @@ import com.example.kyowolf.caloriecalculator_v1.History.History;
 import com.example.kyowolf.caloriecalculator_v1.LoginMainActivity;
 import com.example.kyowolf.caloriecalculator_v1.R;
 import com.example.kyowolf.caloriecalculator_v1.Diet.Select_type_Order;
+import com.example.kyowolf.caloriecalculator_v1.StepCounter.StartActivity;
+import com.example.kyowolf.caloriecalculator_v1.StepCounter.StepCounterActivity;
+import com.example.kyowolf.caloriecalculator_v1.StepCounter.StepCounterService;
+import com.example.kyowolf.caloriecalculator_v1.StepCounter.StepDetector;
 
 
 /**
@@ -159,8 +164,12 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
                 finish();
                 break;
             case R.id.running:
-                Intent intentProfile1 = new Intent(getApplicationContext(), Activity_Running.class);
+                Intent intentProfile1 = new Intent(getApplicationContext(), StepCounterActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("run", false);
+                intentProfile1.putExtras(bundle);
                 startActivity(intentProfile1);
+
                 break;
             case R.id.walking:
                 Intent intentProfile2 = new Intent(getApplicationContext(), Activity_Walking.class);

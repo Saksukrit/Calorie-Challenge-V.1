@@ -24,7 +24,7 @@
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         <activity
             android:name=".LoginMainActivity"
-            android:label="Login">
+            android:label="Calorie Challenge">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -69,6 +69,16 @@
         <activity
             android:name=".Profile.Profile_Bio"
             android:label="Profile_Bio" />
+        <activity
+            android:name=".StepCounter.StepCounterActivity"
+            android:label="StepCounterActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name=".StepCounter.StepCounterService" />
+        <activity
+            android:name=".StepCounter.SettingsActivity"
+            android:label="SettingsActivity"
+            android:screenOrientation="portrait" />
 
 
     </application>
