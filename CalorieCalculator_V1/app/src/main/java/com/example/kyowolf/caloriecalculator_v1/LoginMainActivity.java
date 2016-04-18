@@ -23,6 +23,7 @@ public class LoginMainActivity extends AppCompatActivity {
     private static Button login_btn;
 
     SQLiteDatabase db;
+    DB_profile db_profile = new DB_profile(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,16 @@ public class LoginMainActivity extends AppCompatActivity {
         setContentView(R.layout.login);
         LoginButton();
 
+/* test insert !!!
+        long flg1 = db_profile.InsertData(3, "Kyo", "kyo", "123456", "male", 190, 80, 1848, 2218, 21, "no");
+        if (flg1 > 0) {
+            Toast.makeText(LoginMainActivity.this, "Insert(1) Data Successfully",
+                    Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(LoginMainActivity.this, "Insert(1) Data Failed.",
+                    Toast.LENGTH_LONG).show();
+        }
+        */
 
     }
 
@@ -39,7 +50,7 @@ public class LoginMainActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.editText_password);
         login_btn = (Button) findViewById(R.id.button_login);
 
-        DB_profile db_profile = new DB_profile(this);
+        //DB_profile db_profile = new DB_profile(this);
         final String arrData[] = db_profile.logincheck(username.getText().toString());
 
 

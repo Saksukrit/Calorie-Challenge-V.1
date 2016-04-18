@@ -70,24 +70,16 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         db_profile.getWritableDatabase();
 
 
-        /* test insert !!!
-        long flg1 = db_profile.InsertData(1, "Krit", "krit", "123456", "male", 174, 77, 1848, 2218, 21);
-        if (flg1 > 0) {
-            Toast.makeText(Profile.this, "Insert(1) Data Successfully",
-                    Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(Profile.this, "Insert(1) Data Failed.",
-                    Toast.LENGTH_LONG).show();
-        }
-        */
 
 
+/**/
         if (mid == 0) {
             mid = getIntent().getExtras().getInt("mid");
         }
 
 
         // select data !!!
+
 
         String arrData[] = db_profile.SelectData(mid);
         if (arrData == null) {

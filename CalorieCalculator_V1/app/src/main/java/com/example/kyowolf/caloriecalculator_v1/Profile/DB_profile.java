@@ -14,8 +14,8 @@ import android.util.Log;
 public class DB_profile extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "mydatabase";
-    private static final String TABLE_MEMBER = "members";
+    private static final String DATABASE_NAME = "Mydatabase";
+    private static final String TABLE_MEMBER = "Members";
 
 
     public DB_profile(Context context) {
@@ -35,7 +35,8 @@ public class DB_profile extends SQLiteOpenHelper {
                 " weight DOUBLE(3,1)," +
                 " bmr INTEGER(10)," +
                 " tdee INTEGER(10)," +
-                " age INTEGER(3));");
+                " age INTEGER(3)," +
+                " loginstatus TEXT(5));");
 
         Log.d("CREATE TABLE", "Create Table Successfully.");
     }
@@ -45,9 +46,40 @@ public class DB_profile extends SQLiteOpenHelper {
 
     }
 
+    public String[] checkLoginStatus(String loginstatus) {
+        try {
+            String arrData[] = null;
+
+            SQLiteDatabase db;
+            db = this.getReadableDatabase(); // Read Data
+
+            Cursor cursor = db.query(TABLE_MEMBER, new String[]{"*"},
+                    "loginstatus=?",
+                    new String[]{String.valueOf(loginstatus)}, null, null, null, null);
+
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    arrData = new String[cursor.getColumnCount()];
+                    arrData[0] = cursor.getString(10); //loginstatus
+                    arrData[1] = cursor.getString(2);//username
+                }
+            }
+            cursor.close();
+            db.close();
+            return arrData;
+
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public void setLoginStatus(String username) {
+
+    }
+
 
     public long InsertData(int mid, String name, String username, String password
-            , String gender, float height, float weight, int bmr, int tdee, int age) {
+            , String gender, float height, float weight, int bmr, int tdee, int age, String loginstatus) {
         // TODO Auto-generated method stub
 
         try {
@@ -65,6 +97,7 @@ public class DB_profile extends SQLiteOpenHelper {
             Val.put("bmr", bmr);
             Val.put("tdee", tdee);
             Val.put("age", age);
+            Val.put("loginstatus", loginstatus);
 
             long rows = db.insert(TABLE_MEMBER, null, Val);
 
