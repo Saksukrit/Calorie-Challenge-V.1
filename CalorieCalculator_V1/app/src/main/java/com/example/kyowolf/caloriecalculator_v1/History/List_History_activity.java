@@ -14,6 +14,8 @@ import com.example.kyowolf.caloriecalculator_v1.R;
 
 import java.util.ArrayList;
 
+import android.widget.AdapterView.OnItemClickListener;
+
 /**
  * Created by KyoWolf on 08-Mar-16.
  */
@@ -31,30 +33,28 @@ public class List_History_activity extends AppCompatActivity {
         listview = (ListView) findViewById(R.id.listHisActivity);
 
 
-        final String[] order = new String[]{"Runing            20/12/2015 ,17:58",
-                "Runing            23/12/2015 ,16:30",
-                "Walking            24/12/2015 ,17:02"};
+        int[] resId = {R.drawable.run, R.drawable.walk};
+
+        String[] list = {"Running", "Walking"};
+
+        ActivityAdapter adapter = new ActivityAdapter(getApplicationContext(), list, resId);
 
 
-        final ArrayList<String> list = new ArrayList<String>();
-        for (int i = 0; i < order.length; ++i) {
-            list.add(order[i]);
-        }
-
-
-        ArrayAdapter adapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1, list);
         listview.setAdapter(adapter);
+        listview.setOnItemClickListener(new OnItemClickListener() {                     /////AdapterView.OnItemClickListener
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Toast.makeText(getApplicationContext(),
-                        "Select : " + order[((int) id)].toString(), Toast.LENGTH_LONG)
-                        .show();
-                Intent intenttotal = new Intent(getApplicationContext(), History_activity.class);
-                startActivity(intenttotal);
+
+                Toast.makeText(List_History_activity.this,
+                        "test",
+                        Toast.LENGTH_LONG).show();
+
+                Intent intentHistory = new Intent(getApplicationContext(), History_activity.class);
+                intentHistory.putExtra("date","fsd");
+                startActivity(intentHistory);
+                finish();
+
+
             }
         });
     }

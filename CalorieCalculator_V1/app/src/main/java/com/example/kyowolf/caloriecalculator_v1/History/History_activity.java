@@ -110,8 +110,6 @@ public class History_activity extends AppCompatActivity implements View.OnClickL
             distance.setText(arrData[3]);
             duration.setText(arrData[2]);
             typeActivity.setText(arrData[8]);
-           // DecimalFormat decim = new DecimalFormat("0.00");
-           // String speedi =(decim.format(arrData[4])).toString();
             speed.setText(arrData[4]);
             step.setText(arrData[6]);
             date.setText(arrData[7]);
