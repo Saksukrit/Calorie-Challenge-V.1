@@ -1,7 +1,6 @@
 package com.example.kyowolf.caloriecalculator_v1.StepCounter;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,12 +13,16 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.example.kyowolf.caloriecalculator_v1.Activity_Walking.DB_Activity;
+import com.example.kyowolf.caloriecalculator_v1.History.History_activity;
+import com.example.kyowolf.caloriecalculator_v1.Profile.DB_profile;
+import com.example.kyowolf.caloriecalculator_v1.Profile.Profile_Bio;
 import com.example.kyowolf.caloriecalculator_v1.R;
 
 import java.text.DecimalFormat;
@@ -29,7 +32,7 @@ import java.util.Calendar;
 @SuppressLint("HandlerLeak")
 public class StepCounterActivity extends AppCompatActivity implements View.OnClickListener {
 
-
+    DB_Activity db_activity = new DB_Activity(this);
     private TextView tv_show_step;
     private TextView tv_week_day;
     private TextView tv_date;
@@ -110,7 +113,7 @@ public class StepCounterActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.setContentView(R.layout.main);
+        this.setContentView(R.layout.walking);
 
         actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
@@ -261,11 +264,15 @@ public class StepCounterActivity extends AppCompatActivity implements View.OnCli
     }
 
 
+    int weekDay, month, day, year;
+
     private void setDate() {
         Calendar mCalendar = Calendar.getInstance();
-        int weekDay = mCalendar.get(Calendar.DAY_OF_WEEK);
-        int month = mCalendar.get(Calendar.MONTH) + 1;
-        int day = mCalendar.get(Calendar.DAY_OF_MONTH);
+        weekDay = mCalendar.get(Calendar.DAY_OF_WEEK);
+        month = mCalendar.get(Calendar.MONTH) + 1;
+        day = mCalendar.get(Calendar.DAY_OF_MONTH);
+
+        year = mCalendar.get(Calendar.YEAR);
 
         tv_date.setText(month + getString(R.string.month) + day
                 + getString(R.string.day));
@@ -347,6 +354,28 @@ public class StepCounterActivity extends AppCompatActivity implements View.OnCli
                 }
                 btn_start.setEnabled(true);
                 break;
+            case R.id.save:
+                //db_activity.DeleteAllData();
+                //db_activity.rmvall();
+/* test insert !!!*/
+
+                Double calories_2 = Double.valueOf(formatDouble(calories));   // formatDouble ****
+                long flg1 = db_activity.InsertData("kyo", String.valueOf(getFormatTime(timer)), formatDouble(distance).toString(), formatDouble(velocity).toString(), calories_2, total_step, day + "/" + month + "/" + year, "walking");
+                if (flg1 > 0) {
+                    Toast.makeText(StepCounterActivity.this, "Insert(1) Data Successfully",
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(StepCounterActivity.this, "Insert(1) Data Failed.",
+                            Toast.LENGTH_LONG).show();
+                }
+
+
+                Intent intentHistory = new Intent(getApplicationContext(), History_activity.class);
+                intentHistory.putExtra("date", (day + "/" + month + "/" + year).toString());
+                startActivity(intentHistory);
+                finish();
+                break;
+
         }
     }
 

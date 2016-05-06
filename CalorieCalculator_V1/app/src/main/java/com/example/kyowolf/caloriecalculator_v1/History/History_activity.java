@@ -9,10 +9,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kyowolf.caloriecalculator_v1.Activity_Walking.DB_Activity;
+import com.example.kyowolf.caloriecalculator_v1.Profile.DB_profile;
 import com.example.kyowolf.caloriecalculator_v1.Profile.Profile;
 import com.example.kyowolf.caloriecalculator_v1.R;
+
+import java.text.DecimalFormat;
 
 /**
  * Created by KyoWolf on 08-Mar-16.
@@ -66,6 +71,12 @@ public class History_activity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    private TextView calorie, distance, duration, typeActivity, speed, step, date;
+    private String dateBy = null;
+
+    DB_Activity db_activity = new DB_Activity(this);
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +88,36 @@ public class History_activity extends AppCompatActivity implements View.OnClickL
 
         actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+
+        calorie = (TextView) findViewById(R.id.calories);
+        distance = (TextView) findViewById(R.id.distances);
+        duration = (TextView) findViewById(R.id.durations);
+        typeActivity = (TextView) findViewById(R.id.AcName);
+        speed = (TextView) findViewById(R.id.speeds);
+        step = (TextView) findViewById(R.id.step);
+        date = (TextView) findViewById(R.id.date);
+
+        if (dateBy == null) {
+            dateBy = getIntent().getExtras().getString("date");
+        }
+
+        String arrData[] = db_activity.SelectDataByDate(dateBy);
+        if (arrData == null) {
+            Toast.makeText(History_activity.this, "Not found Data!",
+                    Toast.LENGTH_LONG).show();
+        } else {
+            calorie.setText(arrData[5]);
+            distance.setText(arrData[3]);
+            duration.setText(arrData[2]);
+            typeActivity.setText(arrData[8]);
+           // DecimalFormat decim = new DecimalFormat("0.00");
+           // String speedi =(decim.format(arrData[4])).toString();
+            speed.setText(arrData[4]);
+            step.setText(arrData[6]);
+            date.setText(arrData[7]);
+        }
+
+
     }
 
     public void onClick(View v) {

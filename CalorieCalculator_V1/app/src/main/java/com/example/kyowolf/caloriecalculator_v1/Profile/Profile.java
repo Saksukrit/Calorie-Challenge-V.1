@@ -164,7 +164,10 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
 
                 break;
             case R.id.walking:
-                Intent intentProfile2 = new Intent(getApplicationContext(), Activity_Walking.class);
+                Intent intentProfile2 = new Intent(getApplicationContext(), StepCounterActivity.class);
+                Bundle bundle2 = new Bundle();
+                bundle2.putBoolean("run", false);
+                intentProfile2.putExtras(bundle2);
                 startActivity(intentProfile2);
                 break;
             case R.id.eating:

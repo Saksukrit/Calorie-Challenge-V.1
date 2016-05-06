@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#CCFF66"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:layout_weight="0.26">
 
         <TextView
             android:id="@+id/AcName"
@@ -32,7 +33,7 @@
             android:id="@+id/date"
             android:layout_width="198dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|bottom"
+            android:layout_gravity="left|bottom"
             android:text="23/12/2015, 16:30"
             android:textSize="20dp" />
 
@@ -65,22 +66,20 @@
             android:id="@+id/calories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/textCalories"
-            android:layout_toRightOf="@+id/textCalories"
             android:text="368"
-            android:textSize="27dp" />
+            android:textSize="27dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/textCalories"
+            android:layout_toEndOf="@+id/textCalories" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="47dp"
-            android:layout_marginRight="47dp"
             android:text="kcal."
-            android:textSize="27dp" />
+            android:textSize="27dp"
+            android:layout_alignTop="@+id/calories"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -109,22 +108,20 @@
             android:id="@+id/distances"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/textDistance"
-            android:layout_toRightOf="@+id/textDistance"
             android:text="5.6"
-            android:textSize="27dp" />
+            android:textSize="27dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/textDistance"
+            android:layout_toEndOf="@+id/textDistance" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="m."
+            android:textSize="27dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginEnd="47dp"
-            android:layout_marginRight="47dp"
-            android:text="km."
-            android:textSize="27dp" />
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -156,19 +153,17 @@
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/textDuration"
             android:layout_toRightOf="@+id/textDuration"
-            android:text="00:30"
+            android:text="00:30:00"
             android:textSize="27dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="47dp"
-            android:layout_marginRight="47dp"
             android:text="hr."
-            android:textSize="27dp" />
+            android:textSize="27dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -184,7 +179,7 @@
 
 
         <TextView
-            android:id="@+id/textSpeed"
+            android:id="@+id/textStep"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -198,47 +193,52 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/textSpeed"
-            android:layout_toRightOf="@+id/textSpeed"
+            android:layout_toEndOf="@+id/textStep"
+            android:layout_toRightOf="@+id/textStep"
             android:text="9.7"
             android:textSize="27dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="km./hr."
+            android:textSize="27dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginEnd="47dp"
-            android:layout_marginRight="47dp"
-            android:text="km./hr.."
-            android:textSize="27dp" />
+            android:layout_alignParentEnd="true" />
+
+
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.63">
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:layout_weight="0.32">
+
 
         <TextView
-            android:id="@+id/detail"
+            android:id="@+id/textStep"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="      วันนี้ฉันวิ่งคนเดียว เหงาดีเนอะ TT วิ่งได้3รอบ เหนื่อยกำลังดี ครั้งหน้าต้องให้ได้มากกว่านี้ เผื่อจะเจอคนมาวิ่งข้าง ^^"
-            android:textSize="20dp"
-            android:textStyle="normal" />
+            android:text="Step : "
+            android:textSize="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/step"
+            android:layout_toStartOf="@+id/step" />
 
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
+        <TextView
+            android:id="@+id/step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9.7"
+            android:textSize="55dp"
+            android:layout_marginRight="67dp"
+            android:layout_marginEnd="67dp"
+            android:layout_alignTop="@+id/textStep"
             android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/detail"
-            android:src="@drawable/runrun" />
+            android:layout_alignParentEnd="true" />
 
 
     </RelativeLayout>
