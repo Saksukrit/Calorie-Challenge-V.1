@@ -12,12 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.kyowolf.caloriecalculator_v1.Activity_Walking.DB_Activity;
-import com.example.kyowolf.caloriecalculator_v1.Profile.DB_profile;
 import com.example.kyowolf.caloriecalculator_v1.Profile.Profile;
 import com.example.kyowolf.caloriecalculator_v1.R;
-
-import java.text.DecimalFormat;
 
 /**
  * Created by KyoWolf on 08-Mar-16.
@@ -74,13 +70,16 @@ public class History_activity extends AppCompatActivity implements View.OnClickL
     private TextView calorie, distance, duration, typeActivity, speed, step, date;
     private String dateBy = null;
 
-    DB_Activity db_activity = new DB_Activity(this);
+    private ActivityAdapter activityAdapter;
+    private DB_ActivityHelper db_activityHelper;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history_activity);
+
+        db_activityHelper = new DB_ActivityHelper(this); /// *****
 
         delete = (Button) findViewById(R.id.delete);
 
@@ -101,7 +100,7 @@ public class History_activity extends AppCompatActivity implements View.OnClickL
             dateBy = getIntent().getExtras().getString("date");
         }
 
-        String arrData[] = db_activity.SelectDataByDate(dateBy);
+        String arrData[] = db_activityHelper.SelectDataByDate(dateBy);
         if (arrData == null) {
             Toast.makeText(History_activity.this, "Not found Data!",
                     Toast.LENGTH_LONG).show();

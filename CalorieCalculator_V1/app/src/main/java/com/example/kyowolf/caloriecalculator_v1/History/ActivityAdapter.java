@@ -1,10 +1,12 @@
 package com.example.kyowolf.caloriecalculator_v1.History;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,48 +15,31 @@ import com.example.kyowolf.caloriecalculator_v1.R;
 /**
  * Created by Krit on 5/7/2016.
  */
-public class ActivityAdapter extends BaseAdapter {
+public class ActivityAdapter extends CursorAdapter {
 
 
-    Context mContext;
-    String[] strName;
-    int[] resId;
-
-    public ActivityAdapter(Context context, String[] strName, int[] resId) {
-        this.mContext = context;
-        this.strName = strName;
-        this.resId = resId;
+    public ActivityAdapter(Context context, Cursor c) {
+        super(context, c);
     }
 
     @Override
-    public int getCount() {
-        return strName.length;
+    public View newView(Context context, Cursor cursor, ViewGroup parent) {
+
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View retView = inflater.inflate(R.layout.listview_row, parent, false);
+
+        return retView;
     }
 
     @Override
-    public Object getItem(int position) {
-        return null;
-    }
+    public void bindView(View view, Context context, Cursor cursor) {
 
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
+        /*
+        ImageView imageActivity = (ImageView) view.findViewById(R.id.imageActivity);
+        imageActivity.set(cursor.getString(cursor.getColumnIndex(cursor.getColumnName(1))));
+        */
 
-    @Override
-    public View getView(int position, View view, ViewGroup parent) {
-        LayoutInflater mInflater =
-                (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        if (view == null)
-            view = mInflater.inflate(R.layout.listview_row, parent, false);
-
-        TextView textView = (TextView) view.findViewById(R.id.detail);
-        textView.setText(strName[position]);
-
-        ImageView imageView = (ImageView) view.findViewById(R.id.imageView1);
-        imageView.setBackgroundResource(resId[position]);
-
-        return view;
+        TextView topic = (TextView) view.findViewById(R.id.topic);
+        topic.setText(cursor.getString(cursor.getColumnIndex(cursor.getColumnName(1))));
     }
 }

@@ -19,10 +19,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.kyowolf.caloriecalculator_v1.Activity_Walking.DB_Activity;
+import com.example.kyowolf.caloriecalculator_v1.History.ActivityAdapter;
+import com.example.kyowolf.caloriecalculator_v1.History.DB_ActivityHelper;
 import com.example.kyowolf.caloriecalculator_v1.History.History_activity;
-import com.example.kyowolf.caloriecalculator_v1.Profile.DB_profile;
-import com.example.kyowolf.caloriecalculator_v1.Profile.Profile_Bio;
 import com.example.kyowolf.caloriecalculator_v1.R;
 
 import java.text.DecimalFormat;
@@ -32,7 +31,10 @@ import java.util.Calendar;
 @SuppressLint("HandlerLeak")
 public class StepCounterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    DB_Activity db_activity = new DB_Activity(this);
+    private ActivityAdapter activityAdapter;
+    private DB_ActivityHelper db_activityHelper;
+
+
     private TextView tv_show_step;
     private TextView tv_week_day;
     private TextView tv_date;
@@ -114,6 +116,8 @@ public class StepCounterActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.setContentView(R.layout.walking);
+
+        db_activityHelper = new DB_ActivityHelper(this); /// *****
 
         actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
@@ -360,7 +364,7 @@ public class StepCounterActivity extends AppCompatActivity implements View.OnCli
 /* test insert !!!*/
 
                 Double calories_2 = Double.valueOf(formatDouble(calories));   // formatDouble ****
-                long flg1 = db_activity.InsertData("kyo", String.valueOf(getFormatTime(timer)), formatDouble(distance).toString(), formatDouble(velocity).toString(), calories_2, total_step, day + "/" + month + "/" + year, "walking");
+                long flg1 = db_activityHelper.InsertData("kyo", String.valueOf(getFormatTime(timer)), formatDouble(distance).toString(), formatDouble(velocity).toString(), calories_2, total_step, day + "/" + month + "/" + year, "walking");
                 if (flg1 > 0) {
                     Toast.makeText(StepCounterActivity.this, "Insert(1) Data Successfully",
                             Toast.LENGTH_LONG).show();
