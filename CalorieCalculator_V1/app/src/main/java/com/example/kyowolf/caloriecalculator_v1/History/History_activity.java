@@ -108,10 +108,10 @@ public class History_activity extends AppCompatActivity implements View.OnClickL
             calorie.setText(arrData[5]);
             distance.setText(arrData[3]);
             duration.setText(arrData[2]);
-            typeActivity.setText(arrData[8]);
+            typeActivity.setText(arrData[9]);
             speed.setText(arrData[4]);
             step.setText(arrData[6]);
-            date.setText(arrData[7]);
+            date.setText(arrData[7] + "     " + arrData[8]);
         }
 
 

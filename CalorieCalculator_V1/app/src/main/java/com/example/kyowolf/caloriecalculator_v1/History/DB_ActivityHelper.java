@@ -15,7 +15,7 @@ public class DB_ActivityHelper {
     private static final String TAG = DB_ActivityHelper.class.getSimpleName();
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "ActivityHistory";
+    private static final String DATABASE_NAME = "ActivityHistory2";
 
     private static final String TABLE_NAME = "Activity";
     private static final String TABLE_COLUMN_ID = "Aid";
@@ -37,18 +37,38 @@ public class DB_ActivityHelper {
         database = db_activity.getWritableDatabase();
     }
 
-    public long InsertData(String username, String duration, String distance
-            , String speed, Double calorie, int step, String date, String type) {
+    public long InsertDataWalking(String username, String duration, String distance
+            , String speed, Double calorie, int step, String date, String type, String time) {
 
         ContentValues Val = new ContentValues();
-        Val.put("username", username);
-        Val.put("duration", duration);
-        Val.put("distance", distance);
-        Val.put("speed", speed);
-        Val.put("calorie", calorie);
-        Val.put("step", step);
-        Val.put("date", date);
-        Val.put("type", type);
+        Val.put(TABLE_COLUMN_USERNAME, username);
+        Val.put(TABLE_COLUMN_DURATION, duration);
+        Val.put(TABLE_COLUMN_DISTANCE, distance);
+        Val.put(TABLE_COLUMN_SPEED, speed);
+        Val.put(TABLE_COLUMN_CALORIE, calorie);
+        Val.put(TABLE_COLUMN_STEP, step);
+        Val.put(TABLE_COLUMN_DATE, date);
+        Val.put(TABLE_COLUMN_TYPE, type);
+        Val.put(TABLE_COLUMN_TIME, time);
+
+        database.insert(TABLE_NAME, null, Val);
+        database.close();
+
+        return -1;
+    }
+
+    public long InsertDataRunning(String username, String duration, String distance
+            , String speed, Double calorie, String date, String type, String time) {
+
+        ContentValues Val = new ContentValues();
+        Val.put(TABLE_COLUMN_USERNAME, username);
+        Val.put(TABLE_COLUMN_DURATION, duration);
+        Val.put(TABLE_COLUMN_DISTANCE, distance);
+        Val.put(TABLE_COLUMN_SPEED, speed);
+        Val.put(TABLE_COLUMN_CALORIE, calorie);
+        Val.put(TABLE_COLUMN_DATE, date);
+        Val.put(TABLE_COLUMN_TYPE, type);
+        Val.put(TABLE_COLUMN_TIME, time);
 
         database.insert(TABLE_NAME, null, Val);
         database.close();
@@ -58,9 +78,32 @@ public class DB_ActivityHelper {
 
     public Cursor SelectAllData() {
 
-        String strSQL = "SELECT  * FROM " + TABLE_NAME;
-        Log.d(TAG, "SelectAllData SQL:" + strSQL);
-        return database.rawQuery(strSQL, null);
+        try {
+
+        /*
+            String arrData[] = null;
+
+            Cursor cursor = database.query(TABLE_NAME, new String[]{TABLE_COLUMN_TYPE, TABLE_COLUMN_DATE, TABLE_COLUMN_TIME}, null, null, null, null, null, null);
+
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    arrData = new String[cursor.getColumnCount()];
+                    arrData[1] = cursor.getString(1);//type
+                    arrData[2] = cursor.getString(2);//date
+                    arrData[3] = cursor.getString(3);//time
+                }
+            }
+            cursor.close();
+            database.close();
+            */
+            String buildSQL = "SELECT " + TABLE_COLUMN_TYPE + "," + TABLE_COLUMN_DATE + "," + TABLE_COLUMN_TIME
+                    + " FROM " + TABLE_NAME;
+
+            Log.d(TAG, "getAllData SQL: " + buildSQL);
+            return database.rawQuery(buildSQL, null);
+        } catch (Exception e) {
+            return null;
+        }
 
     }
 
@@ -72,7 +115,7 @@ public class DB_ActivityHelper {
 
             Cursor cursor = database.query(TABLE_NAME, new String[]{"*"},
                     "step=?",
-                    new String[]{String.valueOf("17")}, null, null, null, null);
+                    new String[]{String.valueOf("13")}, null, null, null, null);
 
             if (cursor != null) {
                 if (cursor.moveToFirst()) {
@@ -85,6 +128,7 @@ public class DB_ActivityHelper {
                     arrData[6] = cursor.getString(6);
                     arrData[7] = cursor.getString(7);
                     arrData[8] = cursor.getString(8);
+                    arrData[9] = cursor.getString(9);
                 }
             }
             cursor.close();

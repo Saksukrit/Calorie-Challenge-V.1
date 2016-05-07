@@ -1,6 +1,7 @@
 package com.example.kyowolf.caloriecalculator_v1.History;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
@@ -80,4 +81,6 @@ public class List_History_activity extends AppCompatActivity {
 
 
     }
+
+
 }

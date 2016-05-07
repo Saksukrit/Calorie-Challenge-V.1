@@ -34,12 +34,12 @@ public class ActivityAdapter extends CursorAdapter {
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
 
-        /*
-        ImageView imageActivity = (ImageView) view.findViewById(R.id.imageActivity);
-        imageActivity.set(cursor.getString(cursor.getColumnIndex(cursor.getColumnName(1))));
-        */
 
+        ImageView imageActivity = (ImageView) view.findViewById(R.id.imageActivity);
         TextView topic = (TextView) view.findViewById(R.id.topic);
-        topic.setText(cursor.getString(cursor.getColumnIndex(cursor.getColumnName(1))));
+
+        //imageActivity.set(cursor.getString(cursor.getColumnIndex(cursor.getColumnName(1))));
+
+        topic.setText(cursor.getString(cursor.getColumnIndexOrThrow(cursor.getColumnName(0) + "  " + cursor.getColumnName(1) + "  " + cursor.getColumnName(2))));
     }
 }

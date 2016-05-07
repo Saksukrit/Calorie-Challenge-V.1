@@ -25,6 +25,7 @@ import com.example.kyowolf.caloriecalculator_v1.History.History_activity;
 import com.example.kyowolf.caloriecalculator_v1.R;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 
@@ -359,12 +360,13 @@ public class StepCounterActivity extends AppCompatActivity implements View.OnCli
                 btn_start.setEnabled(true);
                 break;
             case R.id.save:
-                //db_activity.DeleteAllData();
-                //db_activity.rmvall();
-/* test insert !!!*/
+
+                Calendar cal = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+
 
                 Double calories_2 = Double.valueOf(formatDouble(calories));   // formatDouble ****
-                long flg1 = db_activityHelper.InsertData("kyo", String.valueOf(getFormatTime(timer)), formatDouble(distance).toString(), formatDouble(velocity).toString(), calories_2, total_step, day + "/" + month + "/" + year, "walking");
+                long flg1 = db_activityHelper.InsertDataWalking("kyo", String.valueOf(getFormatTime(timer)), formatDouble(distance).toString(), formatDouble(velocity).toString(), calories_2, total_step, day + "/" + month + "/" + year, "walking", sdf.format(cal.getTime()).toString());
                 if (flg1 > 0) {
                     Toast.makeText(StepCounterActivity.this, "Insert(1) Data Successfully",
                             Toast.LENGTH_LONG).show();
