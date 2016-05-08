@@ -77,9 +77,13 @@
             android:label="Running" />
 
         <service android:name=".StepCounter.StepCounterService" />
+
         <activity
             android:name=".StepCounter.SettingsActivity"
             android:label="SettingsActivity" />
+        <activity
+            android:name=".Challenge"
+            android:label="Challenge"></activity>
 
 
     </application>

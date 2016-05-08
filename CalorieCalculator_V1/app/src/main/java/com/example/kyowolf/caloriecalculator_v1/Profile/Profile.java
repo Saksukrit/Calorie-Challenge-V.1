@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kyowolf.caloriecalculator_v1.Challenge;
 import com.example.kyowolf.caloriecalculator_v1.Diet.Select_type_Order;
 import com.example.kyowolf.caloriecalculator_v1.History.History;
 import com.example.kyowolf.caloriecalculator_v1.LoginMainActivity;
@@ -121,7 +122,8 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
                 Toast.makeText(Profile.this,
                         "Challenge",
                         Toast.LENGTH_LONG).show();
-
+                Intent intentChallenge = new Intent(getApplicationContext(), Challenge.class);
+                startActivity(intentChallenge);
                 return true;
             case R.id.itemid_3:
                 Toast.makeText(Profile.this,
