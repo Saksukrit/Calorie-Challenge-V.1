@@ -61,7 +61,7 @@ public class DB_ActivityHelper {
         }
     }
 
-    public long InsertDataRunning(String username, String duration, String distance
+    public long InsertDataRunning(String username, String duration, String distance   ///////**********************
             , String speed, Double calorie, String date, String type, String time) {
         try {
             ContentValues Val = new ContentValues();
@@ -82,36 +82,6 @@ public class DB_ActivityHelper {
         }
     }
 
-    public Cursor SelectAllData() {
-
-        try {
-
-        /*
-            String arrData[] = null;
-
-            Cursor cursor = database.query(TABLE_NAME, new String[]{TABLE_COLUMN_TYPE, TABLE_COLUMN_DATE, TABLE_COLUMN_TIME}, null, null, null, null, null, null);
-
-            if (cursor != null) {
-                if (cursor.moveToFirst()) {
-                    arrData = new String[cursor.getColumnCount()];
-                    arrData[1] = cursor.getString(1);//type
-                    arrData[2] = cursor.getString(2);//date
-                    arrData[3] = cursor.getString(3);//time
-                }
-            }
-            cursor.close();
-            database.close();
-            */
-            String buildSQL = "SELECT " + TABLE_COLUMN_TYPE + "," + TABLE_COLUMN_DATE + "," + TABLE_COLUMN_TIME
-                    + " FROM " + TABLE_NAME;
-
-            Log.d(TAG, "getAllData SQL: " + buildSQL);
-            return database.rawQuery(buildSQL, null);
-        } catch (Exception e) {
-            return null;
-        }
-
-    }
 
     public String[] getMaxID() {
         try {
@@ -129,6 +99,50 @@ public class DB_ActivityHelper {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public String[] getCountRow() {
+        try {
+            Cursor cursor = database.query(TABLE_NAME, new String[]{"COUNT(" + TABLE_COLUMN_ID + ")"}, null, null, null, null, null, null);
+            String[] count = null;
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    count = new String[cursor.getColumnCount()];
+                    count[0] = cursor.getString(0);//id
+                }
+            }
+            return count;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+
+    public String[][] SelectAllDataForList(int count) {
+
+        try {
+            String arrData[][] = null;
+
+            Cursor cursor = database.query(TABLE_NAME, new String[]{TABLE_COLUMN_TYPE, TABLE_COLUMN_DATE, TABLE_COLUMN_TIME, TABLE_COLUMN_CALORIE}, null, null, null, null, null, null);
+
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    arrData = new String[count][cursor.getColumnCount()];
+                    for (int i = 0; i < count; i++) {
+                        arrData[i][1] = cursor.getString(0);//type
+                        arrData[i][2] = cursor.getString(1);//date
+                        arrData[i][3] = cursor.getString(2);//time
+                        arrData[i][4] = cursor.getString(3);//calorie
+                    }
+                }
+            }
+            cursor.close();
+            database.close();
+            return arrData;
+        } catch (Exception e) {
+            return null;
+        }
+
     }
 
     public String[] SelectNewData() {
@@ -155,7 +169,6 @@ public class DB_ActivityHelper {
             cursor.close();
             database.close();
             return arrData;
-
         } catch (Exception e) {
             return null;
         }

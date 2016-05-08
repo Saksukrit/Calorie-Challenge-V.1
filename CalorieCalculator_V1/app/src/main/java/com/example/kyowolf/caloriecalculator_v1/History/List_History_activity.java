@@ -34,10 +34,22 @@ public class List_History_activity extends AppCompatActivity {
 
         db_activityHelper = new DB_ActivityHelper(this);
 
-        int[] resId = {R.drawable.run, R.drawable.walk};
-        String[] list = {"Running", "Walking"};
+        String[] count = db_activityHelper.getCountRow();
+        //String[][] all = db_activityHelper.SelectAllDataForList(Integer.parseInt(count[0]));
+        String[][] all = db_activityHelper.SelectAllDataForList(3);
+
+        int[] id = {R.drawable.run, R.drawable.walk, R.drawable.walk};
+
+        String[] topic = new String[3];
+        for (int i = 0; i < 3; i++) {
+            topic[i] = "jopkp";
+        }
+
+
+        ActivityAdapter adapter = new ActivityAdapter(getApplicationContext(), topic, id);
 
         listview = (ListView) findViewById(R.id.listHisActivity);
+        listview.setAdapter(adapter);
         listview.setOnItemClickListener(new OnItemClickListener() {
 
             @Override
