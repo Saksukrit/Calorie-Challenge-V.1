@@ -115,7 +115,7 @@ public class DB_ActivityHelper {
 
             Cursor cursor = database.query(TABLE_NAME, new String[]{"*"},
                     "step=?",
-                    new String[]{String.valueOf("13")}, null, null, null, null);
+                    new String[]{String.valueOf("11")}, null, null, null, null);
 
             if (cursor != null) {
                 if (cursor.moveToFirst()) {
