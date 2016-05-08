@@ -9,60 +9,12 @@
         android:id="@id/show_step_row"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginBottom="5dip"
-        android:layout_marginLeft="15dip"
-        android:layout_marginRight="15dip"
-        android:layout_marginTop="5dip"
+        android:layout_marginBottom="38dp"
         android:gravity="center_horizontal"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dip"
-            android:layout_marginTop="5dip"
-            android:background="@drawable/shape"
-            android:orientation="horizontal"
-            android:paddingBottom="15dip"
-            android:paddingTop="15dip"
-            android:weightSum="2">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="60dip"
-                android:layout_weight="1">
-                "
-
-                <TextView
-                    android:id="@+id/step_counter"
-                    style="@style/small_text_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@id/show_step"
-                    android:gravity="center"
-                    android:text="Step : "
-                    android:textSize="60dp" />
-
-                <TextView
-                    android:id="@id/show_step"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginRight="30dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="55sp" />
-            </RelativeLayout>
-
-
-        </LinearLayout>
+        android:orientation="vertical"
+        android:layout_above="@id/show_daily"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:id="@id/btn_row"
@@ -135,7 +87,7 @@
             android:layout_weight="6.03"
             android:gravity="center_horizontal"
             android:textColor="@android:color/white"
-            android:textSize="25sp" />
+            android:textSize="30dp" />
 
         <TableLayout
             android:layout_width="wrap_content"
@@ -199,8 +151,53 @@
 
                 <TextView
                     style="@style/small_text_style"
-                    android:text="    speed :"
-                    android:textSize="21dp" />
+                    android:layout_column="2"
+                    android:gravity="right"
+                    android:text="              " />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    style="@style/small_text_style"
+                    android:text="speed :"
+                    android:textSize="50dp"
+                    android:layout_column="0" />
 
                 <TextView
                     android:id="@id/velocity"
@@ -210,13 +207,7 @@
 
                 <TextView
                     style="@style/small_text_style"
-                    android:layout_column="2"
-                    android:gravity="right"
-                    android:text="              " />
-
-                <TextView
-                    style="@style/small_text_style"
-                    android:layout_column="2"
+                    android:layout_column="3"
                     android:gravity="right"
                     android:text="km./hr." />
             </TableRow>
@@ -237,11 +228,7 @@
         android:id="@id/show_daily"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/show_step_row"
-        android:layout_alignLeft="@id/show_step_row"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@id/show_step_row"
-        android:layout_alignStart="@id/show_step_row"
         android:layout_marginBottom="51dp"
         android:background="@drawable/shape"
         android:stretchColumns="5">

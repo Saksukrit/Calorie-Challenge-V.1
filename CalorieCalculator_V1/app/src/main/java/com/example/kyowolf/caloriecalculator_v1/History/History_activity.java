@@ -68,7 +68,7 @@ public class History_activity extends AppCompatActivity implements View.OnClickL
     }
 
     private TextView calorie, distance, duration, typeActivity, speed, step, date;
-    private String dateBy = null;
+    private String dateT = null;
 
     private ActivityAdapter activityAdapter;
     private DB_ActivityHelper db_activityHelper;
@@ -96,11 +96,11 @@ public class History_activity extends AppCompatActivity implements View.OnClickL
         step = (TextView) findViewById(R.id.step);
         date = (TextView) findViewById(R.id.date);
 
-        if (dateBy == null) {
-            dateBy = getIntent().getExtras().getString("date");
+        if (dateT == null) {
+            dateT = getIntent().getExtras().getString("date");
         }
 
-        String arrData[] = db_activityHelper.SelectDataByDate(dateBy);
+        String arrData[] = db_activityHelper.SelectNewData();
         if (arrData == null) {
             Toast.makeText(History_activity.this, "Not found Data!",
                     Toast.LENGTH_LONG).show();
@@ -120,9 +120,18 @@ public class History_activity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.delete:
-                Toast.makeText(History_activity.this,
-                        "delete ****",
-                        Toast.LENGTH_LONG).show();
+                try {
+                    db_activityHelper.DeleteByID(db_activityHelper.getMaxID().toString());
+                    Toast.makeText(History_activity.this,
+                            "Delete Complete **",
+                            Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    Toast.makeText(History_activity.this,
+                            "Delete Incomplete !!!",
+                            Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+                }
+
                 break;
             default:
                 break;

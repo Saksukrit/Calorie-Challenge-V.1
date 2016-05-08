@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:orientation="vertical"
-    tools:context=".SplashActivity" >
+    android:weightSum="1"
+    tools:context=".SplashActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -16,7 +17,7 @@
         android:textSize="25sp" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="236dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dip"
         android:layout_marginRight="10dip"
@@ -24,27 +25,31 @@
         android:background="@drawable/shape"
         android:orientation="horizontal"
         android:paddingBottom="15dip"
-        android:paddingTop="15dip" >
+        android:paddingTop="15dip"
+        android:weightSum="1">
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sensitivity"
-            android:textColor="@android:color/white" />
+            android:text="     sensitivity :"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
 
         <TextView
             android:id="@id/sensitivity_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dip"
+            android:layout_marginLeft="20dip"
             android:textColor="@android:color/white" />
+
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip" >
+        android:layout_marginRight="10dip">
 
         <TextView
             android:id="@id/low"
@@ -79,114 +84,76 @@
             android:textColor="@android:color/white" />
     </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dip"
-        android:layout_marginRight="35dip"
-        android:text="@string/sensitivity_info"
-        android:textColor="@android:color/white" />
-
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="201dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dip"
         android:layout_marginRight="10dip"
         android:layout_marginTop="15dip"
-        android:background="@drawable/shape" >
+        android:layout_weight="0.14"
+        android:background="@drawable/shape">
 
         <TextView
             android:id="@id/step"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:paddingBottom="15dip"
-            android:paddingTop="15dip"
-            android:text="@string/step_length"
-            android:textColor="@android:color/white" />
+            android:layout_marginLeft="23dp"
+            android:layout_marginStart="23dp"
+            android:text="step length :  "
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
 
         <TextView
             android:id="@id/step_lenth_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@id/step"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dip"
+            android:textColor="@android:color/white"
+            android:layout_alignBottom="@id/step"
             android:layout_toRightOf="@id/step"
-            android:textColor="@android:color/white" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@id/step" />
     </RelativeLayout>
 
-    <SeekBar
-        android:id="@id/step_lenth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dip"
-        android:layout_marginRight="35dip"
-        android:max="12"
-        android:maxHeight="5dip"
-        android:minHeight="5dip"
-        android:progress="3" />
 
-    <TextView
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="35dip"
-        android:layout_marginRight="35dip"
-        android:text="@string/setp_length_info_1"
-        android:textColor="@android:color/white" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dip"
-        android:layout_marginRight="35dip"
-        android:text="@string/setp_length_info_2"
-        android:textColor="@android:color/white" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dip"
-        android:layout_marginRight="10dip"
-        android:layout_marginTop="15dip"
-        android:background="@drawable/shape"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingBottom="15dip"
-        android:paddingTop="15dip" >
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip">
 
         <TextView
+            android:id="@id/low"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/weigth"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/low"
             android:textColor="@android:color/white" />
+
+        <SeekBar
+            android:id="@id/step_lenth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dip"
+            android:layout_marginRight="35dip"
+            android:max="12"
+            android:maxHeight="5dip"
+            android:minHeight="5dip"
+            android:progress="3" />
 
         <TextView
-            android:id="@id/weight_value"
+            android:id="@id/high"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="@string/high"
             android:textColor="@android:color/white" />
-    </LinearLayout>
-
-    <SeekBar
-        android:id="@id/weight"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dip"
-        android:layout_marginRight="35dip"
-        android:max="50"
-        android:maxHeight="5dip"
-        android:minHeight="5dip"
-        android:progress="3" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dip"
-        android:layout_marginRight="35dip"
-        android:text="@string/weight_info"
-        android:textColor="@android:color/white" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -194,14 +161,17 @@
         android:layout_marginLeft="35dip"
         android:layout_marginRight="35dip"
         android:layout_marginTop="15dip"
+        android:layout_weight="0.77"
         android:paddingBottom="15dip"
-        android:paddingTop="15dip" >
+        android:paddingTop="15dip">
 
         <Button
             android:id="@id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:background="@drawable/btn_bg"
             android:onClick="onClick"
             android:paddingBottom="5dip"
@@ -217,6 +187,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@id/save"
             android:background="@drawable/btn_bg"
             android:onClick="onClick"
             android:paddingBottom="5dip"

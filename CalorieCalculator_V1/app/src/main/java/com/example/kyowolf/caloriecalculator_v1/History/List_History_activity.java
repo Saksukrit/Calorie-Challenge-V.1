@@ -1,20 +1,17 @@
 package com.example.kyowolf.caloriecalculator_v1.History;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.kyowolf.caloriecalculator_v1.R;
-
-import android.widget.AdapterView.OnItemClickListener;
 
 /**
  * Created by KyoWolf on 08-Mar-16.
@@ -58,26 +55,6 @@ public class List_History_activity extends AppCompatActivity {
                 finish();
             }
         });
-
-        new Handler().post(new Runnable() {
-            @Override
-            public void run() {
-                activityAdapter = new ActivityAdapter(List_History_activity.this, db_activityHelper.SelectAllData());
-                listview.setAdapter(activityAdapter);
-            }
-        });
-    }
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == ENTER_DATA_REQUEST_CODE && resultCode == RESULT_OK) {
-
-            //db_activityHelper.InsertData(data.getExtras().getString("tag_person_name"), data.getExtras().getString("tag_person_pin"));
-
-            activityAdapter.changeCursor(db_activityHelper.SelectAllData());
-
-        }
 
 
     }

@@ -71,14 +71,15 @@
             android:label="Profile_Bio" />
         <activity
             android:name=".StepCounter.StepCounterActivity"
-            android:label="StepCounterActivity"
-            android:screenOrientation="portrait" />
+            android:label="Walking" />
+        <activity
+            android:name=".StepCounter.SpeedCounterActivity"
+            android:label="Running" />
 
         <service android:name=".StepCounter.StepCounterService" />
         <activity
             android:name=".StepCounter.SettingsActivity"
-            android:label="SettingsActivity"
-            android:screenOrientation="portrait" />
+            android:label="SettingsActivity" />
 
 
     </application>

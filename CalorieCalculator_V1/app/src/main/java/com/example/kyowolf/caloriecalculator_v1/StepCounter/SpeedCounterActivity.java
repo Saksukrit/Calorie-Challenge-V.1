@@ -1,6 +1,5 @@
 package com.example.kyowolf.caloriecalculator_v1.StepCounter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +17,6 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.example.kyowolf.caloriecalculator_v1.History.ActivityAdapter;
 import com.example.kyowolf.caloriecalculator_v1.History.DB_ActivityHelper;
 import com.example.kyowolf.caloriecalculator_v1.History.History_activity;
@@ -28,15 +26,15 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-
-@SuppressLint("HandlerLeak")
-public class StepCounterActivity extends AppCompatActivity implements View.OnClickListener {
-
+/**
+ * Created by Krit on 5/9/2016.
+ */
+public class SpeedCounterActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityAdapter activityAdapter;
     private DB_ActivityHelper db_activityHelper;
 
 
-    private TextView tv_show_step;
+    //private TextView tv_show_step;
     private TextView tv_week_day;
     private TextView tv_date;
 
@@ -93,7 +91,7 @@ public class StepCounterActivity extends AppCompatActivity implements View.OnCli
 
             countStep();
 
-            tv_show_step.setText(total_step + "");
+            //tv_show_step.setText(total_step + "");
 
             tv_distance.setText(formatDouble(distance));
             tv_calories.setText(formatDouble(calories));
@@ -116,7 +114,7 @@ public class StepCounterActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.setContentView(R.layout.walking);
+        this.setContentView(R.layout.running);
 
         db_activityHelper = new DB_ActivityHelper(this); /// *****
 
@@ -188,7 +186,7 @@ public class StepCounterActivity extends AppCompatActivity implements View.OnCli
 
 
     private void addView() {
-        tv_show_step = (TextView) this.findViewById(R.id.show_step);
+        //tv_show_step = (TextView) this.findViewById(R.id.show_step);
         tv_week_day = (TextView) this.findViewById(R.id.week_day);
         tv_date = (TextView) this.findViewById(R.id.date);
 
@@ -218,7 +216,7 @@ public class StepCounterActivity extends AppCompatActivity implements View.OnCli
         StepDetector.CURRENT_SETP = 0;
         tempTime = timer = 0;
         tv_timer.setText(getFormatTime(timer));
-        tv_show_step.setText("0");
+        //tv_show_step.setText("0");
         tv_distance.setText(formatDouble(0.0));
         tv_calories.setText(formatDouble(0.0));
         tv_velocity.setText(formatDouble(0.0));
@@ -239,9 +237,9 @@ public class StepCounterActivity extends AppCompatActivity implements View.OnCli
         countStep();
         if ((timer += tempTime) != 0 && distance != 0.0) {
 
-            calories = weight * distance * 0.001;
+            calories = weight * distance * 0.003;
 
-            velocity = distance * 1000 / timer;
+            velocity = distance * 2050 / timer;
         } else {
             calories = 0.0;
             velocity = 0.0;
@@ -253,7 +251,7 @@ public class StepCounterActivity extends AppCompatActivity implements View.OnCli
         tv_calories.setText(formatDouble(calories));
         tv_velocity.setText(formatDouble(velocity));
 
-        tv_show_step.setText(total_step + "");
+        //tv_show_step.setText(total_step + "");
 
         btn_start.setEnabled(!StepCounterService.FLAG);
         btn_stop.setEnabled(StepCounterService.FLAG);
@@ -349,7 +347,7 @@ public class StepCounterActivity extends AppCompatActivity implements View.OnCli
 
                     tv_timer.setText(getFormatTime(timer));
 
-                    tv_show_step.setText("0");
+                    //tv_show_step.setText("0");
                     tv_distance.setText(formatDouble(0.0));
                     tv_calories.setText(formatDouble(0.0));
                     tv_velocity.setText(formatDouble(0.0));
@@ -365,12 +363,12 @@ public class StepCounterActivity extends AppCompatActivity implements View.OnCli
 
 
                 Double calories_2 = Double.valueOf(formatDouble(calories));   // formatDouble ****
-                long flg1 = db_activityHelper.InsertDataWalking("kyo", String.valueOf(getFormatTime(timer)), formatDouble(distance).toString(), formatDouble(velocity).toString(), calories_2, total_step, day + "/" + month + "/" + year, "walking", sdf.format(cal.getTime()).toString());
+                long flg1 = db_activityHelper.InsertDataWalking("kyo", String.valueOf(getFormatTime(timer)), formatDouble(distance).toString(), formatDouble(velocity).toString(), calories_2, total_step, day + "/" + month + "/" + year, "Running", sdf.format(cal.getTime()).toString());
                 if (flg1 > 0) {
-                    Toast.makeText(StepCounterActivity.this, "Insert(1) Data Successfully",
+                    Toast.makeText(SpeedCounterActivity.this, "Insert(1) Data Successfully",
                             Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(StepCounterActivity.this, "Insert(1) Data Failed.",
+                    Toast.makeText(SpeedCounterActivity.this, "Insert(1) Data Failed.",
                             Toast.LENGTH_LONG).show();
                 }
 
@@ -430,9 +428,9 @@ public class StepCounterActivity extends AppCompatActivity implements View.OnCli
 
     private void countDistance() {
         if (StepDetector.CURRENT_SETP % 2 == 0) {
-            distance = (StepDetector.CURRENT_SETP / 2) * 3 * step_length * 0.01;
+            distance = (StepDetector.CURRENT_SETP / 2) * 3 * step_length * 0.05;
         } else {
-            distance = ((StepDetector.CURRENT_SETP / 2) * 3 + 1) * step_length * 0.01;
+            distance = ((StepDetector.CURRENT_SETP / 2) * 3 + 1) * step_length * 0.06;
         }
     }
 
@@ -453,6 +451,4 @@ public class StepCounterActivity extends AppCompatActivity implements View.OnCli
         super.onBackPressed();
         finish();
     }
-
-
 }

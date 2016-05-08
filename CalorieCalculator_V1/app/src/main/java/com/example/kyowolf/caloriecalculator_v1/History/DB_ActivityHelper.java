@@ -40,40 +40,46 @@ public class DB_ActivityHelper {
     public long InsertDataWalking(String username, String duration, String distance
             , String speed, Double calorie, int step, String date, String type, String time) {
 
-        ContentValues Val = new ContentValues();
-        Val.put(TABLE_COLUMN_USERNAME, username);
-        Val.put(TABLE_COLUMN_DURATION, duration);
-        Val.put(TABLE_COLUMN_DISTANCE, distance);
-        Val.put(TABLE_COLUMN_SPEED, speed);
-        Val.put(TABLE_COLUMN_CALORIE, calorie);
-        Val.put(TABLE_COLUMN_STEP, step);
-        Val.put(TABLE_COLUMN_DATE, date);
-        Val.put(TABLE_COLUMN_TYPE, type);
-        Val.put(TABLE_COLUMN_TIME, time);
+        try {
+            ContentValues Val = new ContentValues();
+            Val.put(TABLE_COLUMN_USERNAME, username);
+            Val.put(TABLE_COLUMN_DURATION, duration);
+            Val.put(TABLE_COLUMN_DISTANCE, distance);
+            Val.put(TABLE_COLUMN_SPEED, speed);
+            Val.put(TABLE_COLUMN_CALORIE, calorie);
+            Val.put(TABLE_COLUMN_STEP, step);
+            Val.put(TABLE_COLUMN_DATE, date);
+            Val.put(TABLE_COLUMN_TYPE, type);
+            Val.put(TABLE_COLUMN_TIME, time);
 
-        database.insert(TABLE_NAME, null, Val);
-        database.close();
+            database.insert(TABLE_NAME, null, Val);
+            database.close();
 
-        return -1;
+            return 1;
+        } catch (Exception e) {
+            return -1;
+        }
     }
 
     public long InsertDataRunning(String username, String duration, String distance
             , String speed, Double calorie, String date, String type, String time) {
+        try {
+            ContentValues Val = new ContentValues();
+            Val.put(TABLE_COLUMN_USERNAME, username);
+            Val.put(TABLE_COLUMN_DURATION, duration);
+            Val.put(TABLE_COLUMN_DISTANCE, distance);
+            Val.put(TABLE_COLUMN_SPEED, speed);
+            Val.put(TABLE_COLUMN_CALORIE, calorie);
+            Val.put(TABLE_COLUMN_DATE, date);
+            Val.put(TABLE_COLUMN_TYPE, type);
+            Val.put(TABLE_COLUMN_TIME, time);
 
-        ContentValues Val = new ContentValues();
-        Val.put(TABLE_COLUMN_USERNAME, username);
-        Val.put(TABLE_COLUMN_DURATION, duration);
-        Val.put(TABLE_COLUMN_DISTANCE, distance);
-        Val.put(TABLE_COLUMN_SPEED, speed);
-        Val.put(TABLE_COLUMN_CALORIE, calorie);
-        Val.put(TABLE_COLUMN_DATE, date);
-        Val.put(TABLE_COLUMN_TYPE, type);
-        Val.put(TABLE_COLUMN_TIME, time);
-
-        database.insert(TABLE_NAME, null, Val);
-        database.close();
-
-        return -1;
+            database.insert(TABLE_NAME, null, Val);
+            database.close();
+            return 1;
+        } catch (Exception e) {
+            return -1;
+        }
     }
 
     public Cursor SelectAllData() {
@@ -107,16 +113,31 @@ public class DB_ActivityHelper {
 
     }
 
-    public String[] SelectDataByDate(String date) {
+    public String[] getMaxID() {
+        try {
+            Cursor cursor = database.query(TABLE_NAME, new String[]{TABLE_COLUMN_ID}, null, null, null, null, TABLE_COLUMN_ID + " DESC", "1");
+            String id[] = null;
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    id = new String[cursor.getColumnCount()];
+                    id[0] = cursor.getString(0);//id
+
+                }
+            }
+
+            return id;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public String[] SelectNewData() {
         // TODO Auto-generated method stub
 
         try {
             String arrData[] = null;
 
-            Cursor cursor = database.query(TABLE_NAME, new String[]{"*"},
-                    "step=?",
-                    new String[]{String.valueOf("11")}, null, null, null, null);
-
+            Cursor cursor = database.query(TABLE_NAME, new String[]{"*"}, null, null, null, null, TABLE_COLUMN_ID + " DESC", "1");
             if (cursor != null) {
                 if (cursor.moveToFirst()) {
                     arrData = new String[cursor.getColumnCount()];
