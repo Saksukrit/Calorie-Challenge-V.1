@@ -59,7 +59,7 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.52"
+        android:layout_weight="0.09"
         android:padding="10dp">
 
         <RelativeLayout
@@ -92,9 +92,9 @@
             android:id="@+id/heightlayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/weightlayout"
-            android:layout_alignLeft="@+id/agelayout"
-            android:layout_alignStart="@+id/agelayout">
+            android:layout_below="@+id/agelayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
             <TextView
                 android:id="@+id/heighttext"
@@ -120,15 +120,15 @@
             android:id="@+id/weightlayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/heightlayout"
-            android:layout_alignStart="@+id/heightlayout"
-            android:layout_centerVertical="true">
+            android:layout_below="@+id/heightlayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
             <TextView
                 android:id="@+id/weighttext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="weight : "
+                android:text="Weight : "
                 android:textSize="25dp" />
 
             <TextView
@@ -178,9 +178,9 @@
             android:id="@+id/tdeelayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/heightlayout"
             android:layout_alignLeft="@+id/bmrlayout"
-            android:layout_alignStart="@+id/bmrlayout"
-            android:layout_below="@+id/heightlayout">
+            android:layout_alignStart="@+id/bmrlayout">
 
             <TextView
                 android:id="@+id/tdeetext"
@@ -203,12 +203,13 @@
         </RelativeLayout>
 
 
+
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_weight="0.41"
+        android:layout_weight="0.61"
         android:padding="10dp">
 
         <Button

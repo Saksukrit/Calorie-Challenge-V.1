@@ -158,7 +158,7 @@ public class DB_profile extends SQLiteOpenHelper {
                     arrData[1] = cursor.getString(1);
                     arrData[2] = cursor.getString(2);
                     arrData[3] = cursor.getString(3);
-                    arrData[4] = cursor.getString(4);
+                    arrData[4] = cursor.getString(4);//gender
                     arrData[5] = cursor.getString(5);
                     arrData[6] = cursor.getString(6);
                     arrData[7] = cursor.getString(7);

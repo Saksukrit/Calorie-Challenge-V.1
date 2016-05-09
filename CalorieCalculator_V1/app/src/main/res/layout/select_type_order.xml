@@ -60,5 +60,31 @@
         android:layout_weight="0.17"
         android:text="Drink"
         android:textSize="35dp" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@android:color/holo_blue_dark"
+        android:layout_weight="0.17"
+        android:text="Total Menu"
+        android:onClick="addTotal"
+        android:textSize="35dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  "
+        android:textSize="10dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@android:color/holo_green_light"
+        android:layout_weight="0.17"
+        android:text="Add Menu"
+        android:onClick="addMenu"
+        android:textSize="35dp" />
 
 </LinearLayout>

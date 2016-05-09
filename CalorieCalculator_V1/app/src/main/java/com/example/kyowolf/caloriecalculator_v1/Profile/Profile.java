@@ -14,12 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kyowolf.caloriecalculator_v1.Challenge;
-import com.example.kyowolf.caloriecalculator_v1.Diet.Select_type_Order;
 import com.example.kyowolf.caloriecalculator_v1.History.History;
 import com.example.kyowolf.caloriecalculator_v1.LoginMainActivity;
 import com.example.kyowolf.caloriecalculator_v1.R;
 import com.example.kyowolf.caloriecalculator_v1.StepCounter.SpeedCounterActivity;
 import com.example.kyowolf.caloriecalculator_v1.StepCounter.StepCounterActivity;
+import com.example.kyowolf.caloriecalculator_v1.Training;
 
 
 /**
@@ -168,11 +168,12 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
                 startActivity(intentProfile2);
                 break;
             case R.id.eating:
-                Intent intentProfile3 = new Intent(getApplicationContext(), Select_type_Order.class);
+                Intent intentProfile3 = new Intent(getApplicationContext(), com.example.kyowolf.caloriecalculator_v1.Diet2.Select_type_Order.class);
                 startActivity(intentProfile3);
                 break;
             case R.id.training:
-
+                Intent intentProfile4 = new Intent(getApplicationContext(), Training.class);
+                startActivity(intentProfile4);
                 break;
             default:
                 Toast.makeText(Profile.this,

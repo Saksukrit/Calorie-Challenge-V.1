@@ -84,6 +84,64 @@
         <activity
             android:name=".Challenge"
             android:label="Challenge"></activity>
+        <activity
+            android:name=".Training"
+            android:label="Training"></activity>
+
+
+        <provider
+            android:name=".Diet2.FoodDatabase"
+            android:authorities="food"
+            android:enabled="true"
+            android:exported="true" />
+
+        <provider
+            android:name=".Diet2.DrinkDatabase"
+            android:authorities="drink"
+            android:enabled="true"
+            android:exported="true" />
+        <provider
+            android:name=".Diet2.FruitDatabase"
+            android:authorities="Fruit"
+            android:enabled="true"
+            android:exported="true" />
+        <provider
+            android:name=".Diet2.DessertDatabase"
+            android:authorities="Dessert"
+            android:enabled="true"
+            android:exported="true" />
+
+        <provider
+            android:name=".Diet2.TotalDatabase"
+            android:authorities="total"
+            android:enabled="true"
+            android:exported="true"></provider>
+
+        <activity
+            android:name=".Diet2.AddDataActivity"
+            android:label="AddDataActivity"></activity>
+
+        <activity
+            android:name=".Diet2.DessertListActivity"
+            android:label="DessertListActivity"></activity>
+
+        <activity
+            android:name=".Diet2.DrinkListActivity"
+            android:label="DrinkListActivity"></activity>
+        <activity
+            android:name=".Diet2.FoodListActivity"
+            android:label="FoodListActivity"></activity>
+
+        <activity
+            android:name=".Diet2.FruitListActivity"
+            android:label="FruitListActivity"></activity>
+        <activity
+            android:name=".Diet2.Select_type_Order"
+            android:label="Select_type_Order"></activity>
+
+        <activity
+            android:name=".Diet2.TotalDataActivity"
+            android:label="TotalDataActivity"></activity>
 
 
     </application>
