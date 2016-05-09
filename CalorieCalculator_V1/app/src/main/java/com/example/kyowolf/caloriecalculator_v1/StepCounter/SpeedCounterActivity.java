@@ -363,7 +363,7 @@ public class SpeedCounterActivity extends AppCompatActivity implements View.OnCl
 
 
                 Double calories_2 = Double.valueOf(formatDouble(calories));   // formatDouble ****
-                long flg1 = db_activityHelper.InsertDataWalking("kyo", String.valueOf(getFormatTime(timer)), formatDouble(distance).toString(), formatDouble(velocity).toString(), calories_2, total_step, day + "/" + month + "/" + year, "Running", sdf.format(cal.getTime()).toString());
+                long flg1 = db_activityHelper.InsertDataRunning("kyo", String.valueOf(getFormatTime(timer)), formatDouble(distance).toString(), formatDouble(velocity).toString(), calories_2, day + "/" + month + "/" + year, "Running", sdf.format(cal.getTime()).toString());
                 if (flg1 > 0) {
                     Toast.makeText(SpeedCounterActivity.this, "Insert(1) Data Successfully",
                             Toast.LENGTH_LONG).show();

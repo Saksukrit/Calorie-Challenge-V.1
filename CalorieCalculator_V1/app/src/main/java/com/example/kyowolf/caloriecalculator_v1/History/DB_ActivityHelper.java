@@ -118,7 +118,7 @@ public class DB_ActivityHelper {
     }
 
 
-    public String[][] SelectAllDataForList(int count) {
+    public String[][] SelectAllDataForList(int count) {   ///////************************ incomplete
 
         try {
             String arrData[][] = null;
@@ -145,13 +145,13 @@ public class DB_ActivityHelper {
 
     }
 
-    public String[] SelectNewData() {
+    public String[] SelectByID(String id) {
         // TODO Auto-generated method stub
 
         try {
             String arrData[] = null;
 
-            Cursor cursor = database.query(TABLE_NAME, new String[]{"*"}, null, null, null, null, TABLE_COLUMN_ID + " DESC", "1");
+            Cursor cursor = database.query(TABLE_NAME, new String[]{"*"}, TABLE_COLUMN_ID + "=?", new String[]{id}, null, null, TABLE_COLUMN_ID + " DESC", "1");
             if (cursor != null) {
                 if (cursor.moveToFirst()) {
                     arrData = new String[cursor.getColumnCount()];
@@ -164,6 +164,36 @@ public class DB_ActivityHelper {
                     arrData[7] = cursor.getString(7);
                     arrData[8] = cursor.getString(8);
                     arrData[9] = cursor.getString(9);
+                }
+            }
+            cursor.close();
+            database.close();
+            return arrData;
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
+
+    public String[] SelectNewData() {
+        // TODO Auto-generated method stub
+
+        try {
+            String arrData[] = null;
+
+            Cursor cursor = database.query(TABLE_NAME, new String[]{"*"}, null, null, null, null, TABLE_COLUMN_ID + " DESC", "1");
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    arrData = new String[cursor.getColumnCount()];
+                    arrData[1] = cursor.getString(1);//username
+                    arrData[2] = cursor.getString(2);//duration
+                    arrData[3] = cursor.getString(3);//distance
+                    arrData[4] = cursor.getString(4);//speed
+                    arrData[5] = cursor.getString(5);//calorie
+                    arrData[6] = cursor.getString(6);//step
+                    arrData[7] = cursor.getString(7);//date
+                    arrData[8] = cursor.getString(8);//time
+                    arrData[9] = cursor.getString(9);//type
                 }
             }
             cursor.close();
