@@ -30,11 +30,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dip"
                 android:layout_weight="1"
-                android:background="@drawable/btn_bg"
+                android:background="#CCFF66"
                 android:onClick="onClick"
                 android:padding="5dip"
                 android:text="@string/start"
-                android:textColor="@android:color/white"
+                android:textColor="#636363"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
@@ -44,11 +44,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dip"
                 android:layout_weight="1"
-                android:background="@drawable/btn_bg"
+                android:background="#CCFF66"
                 android:onClick="onClick"
                 android:padding="5dip"
                 android:text="@string/pause"
-                android:textColor="@android:color/white"
+                android:textColor="#636363"
                 android:textSize="25sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -277,11 +277,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dip"
                 android:layout_weight="1"
-                android:background="@drawable/btn_bg"
+                android:background="#CCFF66"
                 android:onClick="onClick"
                 android:padding="5dip"
                 android:text="@string/save"
-                android:textColor="@android:color/white"
+                android:textColor="#636363"
                 android:textSize="25sp"
                 android:textStyle="bold" />
         </TableRow>

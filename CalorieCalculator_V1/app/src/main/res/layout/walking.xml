@@ -73,18 +73,18 @@
             android:layout_marginTop="5dip">
 
             <Button
-                android:id="@id/start"
+                android:id="@+id/start"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dip"
                 android:layout_weight="1"
-                android:background="@drawable/btn_bg"
+                android:background="#CCFF66"
                 android:onClick="onClick"
                 android:padding="5dip"
                 android:text="@string/start"
-                android:textColor="@android:color/white"
                 android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="#636363" />
 
             <Button
                 android:id="@id/stop"
@@ -92,13 +92,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dip"
                 android:layout_weight="1"
-                android:background="@drawable/btn_bg"
+                android:background="#CCFF66"
                 android:onClick="onClick"
                 android:padding="5dip"
                 android:text="@string/pause"
-                android:textColor="@android:color/white"
                 android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="#636363" />
         </LinearLayout>
     </LinearLayout>
 
@@ -290,11 +290,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dip"
                 android:layout_weight="1"
-                android:background="@drawable/btn_bg"
+                android:background="#CCFF66"
                 android:onClick="onClick"
                 android:padding="5dip"
                 android:text="@string/save"
-                android:textColor="@android:color/white"
+                android:textColor="#636363"
                 android:textSize="25sp"
                 android:textStyle="bold" />
         </TableRow>

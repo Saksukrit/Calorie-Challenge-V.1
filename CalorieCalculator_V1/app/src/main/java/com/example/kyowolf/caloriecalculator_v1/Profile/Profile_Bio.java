@@ -84,7 +84,7 @@ public class Profile_Bio extends AppCompatActivity implements View.OnClickListen
         save = (Button) findViewById(R.id.save_action);
         height = (TextView) findViewById(R.id.height);
         weight = (TextView) findViewById(R.id.weight);
-        age = (TextView) findViewById(R.id.age);
+        //age = (TextView) findViewById(R.id.age);
         male = (RadioButton) findViewById(R.id.male);
         female = (RadioButton) findViewById(R.id.female);
 
@@ -98,7 +98,7 @@ public class Profile_Bio extends AppCompatActivity implements View.OnClickListen
         DB_profile db_profile = new DB_profile(this);
         String arrData[] = db_profile.SelectData(mid);
 
-        age.setText(arrData[9]);
+        //age.setText(arrData[9]);
         height.setText(arrData[5]);
         weight.setText(arrData[6]);
 
@@ -117,19 +117,19 @@ public class Profile_Bio extends AppCompatActivity implements View.OnClickListen
                 if (male.isChecked()) {
                     bmr = 66 + (13.7 * Double.parseDouble(weight.getText().toString())) + (5
                             * Double.parseDouble(height.getText().toString())) -
-                            (6.8 * Integer.parseInt(age.getText().toString()));
+                            (6.8 * 21 /*Integer.parseInt(age.getText().toString())*/);
                     gender = "male";
                 } else if (female.isChecked()) {
                     bmr = 665 + (9.6 * Double.parseDouble(weight.getText().toString())) + (1.8
                             * Double.parseDouble(height.getText().toString())) -
-                            (4.7 * Integer.parseInt(age.getText().toString()));
+                            (4.7 * 21 /*Integer.parseInt(age.getText().toString())*/);
                     gender = "female";
                 }
                 tdee = 1.375 * bmr;
 
                 DB_profile db_profile = new DB_profile(this);
                 db_profile.UpdateData(mid, height.getText().toString(), weight.getText().toString()
-                        , age.getText().toString(), gender, bmr, tdee);
+                        , String.valueOf(21) /*age.getText().toString()*/, gender, bmr, tdee);
 
 
                 Toast.makeText(Profile_Bio.this,
